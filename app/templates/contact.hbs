@@ -1,0 +1,19 @@
+<h1> Contact Us </h1>
+
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+			{{input type='email' value=contactAddress class="form-control {{if isValidEmail 'has-success'}}" placeholder="Please type your e-mail address" autofocus="autofocus" }} 
+			{{#if isValidEmail}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+			<br/>
+		</div>
+		<div class="form-group">
+			{{textarea value=message class="form-control {{if isLengthy 'has-success'}}" placeholder="Your message. (At least 5 characters.)" rows="7" }}
+			{{#if isLengthy}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+		</div>
+		<br/>
+		<button disabled={{isActive}} {{action 'saveContact'}} class="btn btn-primary btn-lg btn-block">Submit Message</button>
+	</div>
+</div>
+{{outlet}}
