@@ -20,6 +20,18 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    firebase: {
+      apiKey: process.env.firebaseApiKey,
+      authDomain: 'optimal-primer-144315.firebaseapp.com',
+      databaseURL: 'https://optimal-primer-144315.firebaseio.com',
+      storageBucket: 'optimal-primer-144315.appspot.com',
+      messagingSenderId: process.env.firebaseSenderId
+    },
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
     }
   };
 
@@ -30,6 +42,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
+
+
 
   if (environment === 'test') {
     // Testem prefers this...
