@@ -3,17 +3,21 @@
 
 <div class="row">
 	<div class="col-md-6">
+		{{#if responseMessage}}
+		<div class="alert alert-success" role="alert">Thanks. We've recieved your message.</div>
+		{{/if}}
 		<div class="form-group">
-			{{input type='email' value=contactAddress class="form-control {{if isValidEmail 'has-success'}}" placeholder="Please type your e-mail address" autofocus="autofocus" }} 
+			{{input type='email' value=model.email class="form-control {{if isValidEmail 'has-success'}}" placeholder="Please type your e-mail address" autofocus="autofocus" }} 
 			{{#if isValidEmail}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
 			<br/>
 		</div>
 		<div class="form-group">
-			{{textarea value=message class="form-control {{if isLengthy 'has-success'}}" placeholder="Your message. (At least 5 characters.)" rows="7" }}
+			{{textarea value=model.message class="form-control {{if isLengthy 'has-success'}}" placeholder="Your message. (At least 5 characters.)" rows="7" }}
 			{{#if isLengthy}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
 		</div>
 		<br/>
-		<button disabled={{isActive}} {{action 'saveContact'}} class="btn btn-primary btn-lg btn-block">Submit Message</button>
+		<button disabled={{isActive}} {{action 'saveContact' model}} class="btn btn-primary btn-lg btn-block">Submit Message</button>
 	</div>
+
 </div>
 {{outlet}}
