@@ -5,5 +5,6 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   address: DS.attr('string'),
   phone: DS.attr('string'),
-  isValid: notEmpty('name')
+  isValid: notEmpty('name'),
+  books: DS.hasMany('book'),
 });
