@@ -58,7 +58,6 @@ export default Controller.extend({
         const books = this._saveRandomAuthor().then(newAuthor => this._generateSomeBooks(newAuthor));
         booksWithAuthors.push(books);
       }
-      debugger;
 
       // Let's wait until all async save resolved, show a label and turn off the spinner.
       all(booksWithAuthors)
@@ -122,8 +121,6 @@ export default Controller.extend({
           .then(() => library && library.save());
       books.push(bookPromise)
     }
-    console.log("books generated");
-    debugger;
 
     // Return a Promise, so we can manage the whole process on time
     return all(books);
@@ -139,8 +136,6 @@ export default Controller.extend({
 
     // Get a random number between 0 and size-1
     const randomItem = Faker.random.number(size - 1);
-    console.log("libraries selected");
-    debugger;
     return libraries.objectAt(randomItem);
   },
 
