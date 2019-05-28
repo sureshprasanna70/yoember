@@ -10,7 +10,7 @@
 		{{#each model as |book|}}
 		<tr>
 			<td> {{book.title}} </td>
-			<td> {{book.releaseYear}} </td>
+			<td> {{moment-format book.releaseYear "DD/MMM/YYYY"}}</td>
 			<td> {{book.author.name}} </td>
 		</tr>
 		{{/each}}
