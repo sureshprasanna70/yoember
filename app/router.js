@@ -20,6 +20,7 @@ Router.map(function() {
     this.route('edit',{path: '/:id/edit'})
   });
   this.route('authors');
+  this.route('books');
 });
 
 export default Router;
